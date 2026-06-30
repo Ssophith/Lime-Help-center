@@ -1,0 +1,235 @@
+2026-02-09T23:45:24: 
+2026-02-09T23:45:24: > kb@0.1.0 start
+2026-02-09T23:45:24: > next start -H 0.0.0.0 -p ${PORT:-3000}
+2026-02-09T23:45:24: 
+2026-02-09T23:45:25:    ▲ Next.js 15.5.9
+2026-02-09T23:45:25:    - Local:        http://localhost:3010
+2026-02-09T23:45:25:    - Network:      http://0.0.0.0:3010
+2026-02-09T23:45:25: 
+2026-02-09T23:45:25:  ✓ Starting...
+2026-02-09T23:45:25:  ✓ Ready in 633ms
+2026-02-10T00:24:38: 
+2026-02-10T00:24:38: > kb@0.1.0 start
+2026-02-10T00:24:38: > next start -H 0.0.0.0 -p ${PORT:-3000}
+2026-02-10T00:24:38: 
+2026-02-10T00:24:38:    ▲ Next.js 15.5.9
+2026-02-10T00:24:38:    - Local:        http://localhost:3010
+2026-02-10T00:24:38:    - Network:      http://0.0.0.0:3010
+2026-02-10T00:24:38: 
+2026-02-10T00:24:38:  ✓ Starting...
+2026-02-10T00:24:38:  ✓ Ready in 322ms
+2026-02-12T19:54:49: FTS search failed, using ILIKE fallback: column a.search_vector does not exist
+2026-02-12T19:54:50: FTS search failed, using ILIKE fallback: column a.search_vector does not exist
+2026-02-12T19:55:01: FTS search failed, using ILIKE fallback: column a.search_vector does not exist
+2026-02-12T19:55:02: FTS search failed, using ILIKE fallback: column a.search_vector does not exist
+2026-02-12T19:55:03: FTS search failed, using ILIKE fallback: column a.search_vector does not exist
+2026-02-12T19:55:04: FTS search failed, using ILIKE fallback: column a.search_vector does not exist
+2026-02-25T10:25:46: FTS search failed, using ILIKE fallback: column a.search_vector does not exist
+2026-02-25T10:25:50: FTS search failed, using ILIKE fallback: column a.search_vector does not exist
+2026-02-25T10:25:50: FTS search failed, using ILIKE fallback: column a.search_vector does not exist
+2026-02-25T10:25:51: FTS search failed, using ILIKE fallback: column a.search_vector does not exist
+2026-02-25T10:25:52: FTS search failed, using ILIKE fallback: column a.search_vector does not exist
+2026-02-25T10:25:52: FTS search failed, using ILIKE fallback: column a.search_vector does not exist
+2026-02-25T10:25:57: FTS search failed, using ILIKE fallback: column a.search_vector does not exist
+2026-02-26T18:03:34: FTS search failed, using ILIKE fallback: column a.search_vector does not exist
+2026-02-26T18:03:37: FTS search failed, using ILIKE fallback: column a.search_vector does not exist
+2026-02-26T18:03:43: FTS search failed, using ILIKE fallback: column a.search_vector does not exist
+2026-02-26T18:03:44: FTS search failed, using ILIKE fallback: column a.search_vector does not exist
+2026-02-26T18:03:44: FTS search failed, using ILIKE fallback: column a.search_vector does not exist
+2026-02-26T18:03:44: FTS search failed, using ILIKE fallback: column a.search_vector does not exist
+2026-02-26T18:03:45: FTS search failed, using ILIKE fallback: column a.search_vector does not exist
+2026-02-26T18:03:46: FTS search failed, using ILIKE fallback: column a.search_vector does not exist
+2026-02-26T18:03:47: FTS search failed, using ILIKE fallback: column a.search_vector does not exist
+2026-02-26T18:03:47: FTS search failed, using ILIKE fallback: column a.search_vector does not exist
+2026-03-07T17:17:14: FTS search failed, using ILIKE fallback: column a.search_vector does not exist
+2026-03-07T17:17:15: FTS search failed, using ILIKE fallback: column a.search_vector does not exist
+2026-03-07T17:17:19: FTS search failed, using ILIKE fallback: column a.search_vector does not exist
+2026-03-07T17:17:23: FTS search failed, using ILIKE fallback: column a.search_vector does not exist
+2026-03-15T18:08:54: FTS search failed, using ILIKE fallback: column a.search_vector does not exist
+2026-03-22T12:22:41: FTS search failed, using ILIKE fallback: column a.search_vector does not exist
+2026-03-22T12:22:41: FTS search failed, using ILIKE fallback: column a.search_vector does not exist
+2026-03-22T12:22:42: FTS search failed, using ILIKE fallback: column a.search_vector does not exist
+2026-03-22T12:22:43: FTS search failed, using ILIKE fallback: column a.search_vector does not exist
+2026-03-22T12:22:46: FTS search failed, using ILIKE fallback: column a.search_vector does not exist
+2026-03-22T12:22:47: FTS search failed, using ILIKE fallback: column a.search_vector does not exist
+2026-03-22T12:22:48: FTS search failed, using ILIKE fallback: column a.search_vector does not exist
+2026-03-22T12:22:48: FTS search failed, using ILIKE fallback: column a.search_vector does not exist
+2026-03-22T12:22:49: FTS search failed, using ILIKE fallback: column a.search_vector does not exist
+2026-03-22T12:22:50: FTS search failed, using ILIKE fallback: column a.search_vector does not exist
+2026-03-25T17:17:13: 
+2026-03-25T17:17:13: > kb@0.1.0 start
+2026-03-25T17:17:13: > next start -H 0.0.0.0 -p ${PORT:-3000}
+2026-03-25T17:17:13: 
+2026-03-25T17:17:13:    ▲ Next.js 15.5.9
+2026-03-25T17:17:13:    - Local:        http://localhost:3010
+2026-03-25T17:17:13:    - Network:      http://0.0.0.0:3010
+2026-03-25T17:17:13: 
+2026-03-25T17:17:13:  ✓ Starting...
+2026-03-25T17:17:14:  ✓ Ready in 302ms
+2026-03-25T17:25:56: 
+2026-03-25T17:25:56: > kb@0.1.0 start
+2026-03-25T17:25:56: > next start -H 0.0.0.0 -p ${PORT:-3000}
+2026-03-25T17:25:56: 
+2026-03-25T17:25:56:    ▲ Next.js 15.5.9
+2026-03-25T17:25:56:    - Local:        http://localhost:3010
+2026-03-25T17:25:56:    - Network:      http://0.0.0.0:3010
+2026-03-25T17:25:56: 
+2026-03-25T17:25:56:  ✓ Starting...
+2026-03-25T17:25:56:  ✓ Ready in 297ms
+2026-03-25T17:44:12: 
+2026-03-25T17:44:12: > kb@0.1.0 start
+2026-03-25T17:44:12: > next start -H 0.0.0.0 -p ${PORT:-3000}
+2026-03-25T17:44:12: 
+2026-03-25T17:44:12:    ▲ Next.js 15.5.9
+2026-03-25T17:44:12:    - Local:        http://localhost:3010
+2026-03-25T17:44:12:    - Network:      http://0.0.0.0:3010
+2026-03-25T17:44:12: 
+2026-03-25T17:44:12:  ✓ Starting...
+2026-03-25T17:44:12:  ✓ Ready in 298ms
+2026-03-25T18:06:43: FTS search failed, using ILIKE fallback: column a.search_vector does not exist
+2026-03-25T22:04:59: 
+2026-03-25T22:04:59: > kb@0.1.0 start
+2026-03-25T22:04:59: > next start -H 0.0.0.0 -p ${PORT:-3000}
+2026-03-25T22:04:59: 
+2026-03-25T22:05:00:    ▲ Next.js 15.5.9
+2026-03-25T22:05:00:    - Local:        http://localhost:3010
+2026-03-25T22:05:00:    - Network:      http://0.0.0.0:3010
+2026-03-25T22:05:00: 
+2026-03-25T22:05:00:  ✓ Starting...
+2026-03-25T22:05:00:  ✓ Ready in 312ms
+2026-03-25T22:18:13: 
+2026-03-25T22:18:13: > kb@0.1.0 start
+2026-03-25T22:18:13: > next start -H 0.0.0.0 -p ${PORT:-3000}
+2026-03-25T22:18:13: 
+2026-03-25T22:18:13:    ▲ Next.js 15.5.9
+2026-03-25T22:18:13:    - Local:        http://localhost:3010
+2026-03-25T22:18:13:    - Network:      http://0.0.0.0:3010
+2026-03-25T22:18:13: 
+2026-03-25T22:18:13:  ✓ Starting...
+2026-03-25T22:18:13:  ✓ Ready in 315ms
+2026-03-25T23:31:26: 
+2026-03-25T23:31:26: > kb@0.1.0 start
+2026-03-25T23:31:26: > next start -H 0.0.0.0 -p ${PORT:-3000}
+2026-03-25T23:31:26: 
+2026-03-25T23:31:26:    ▲ Next.js 15.5.9
+2026-03-25T23:31:26:    - Local:        http://localhost:3010
+2026-03-25T23:31:26:    - Network:      http://0.0.0.0:3010
+2026-03-25T23:31:26: 
+2026-03-25T23:31:26:  ✓ Starting...
+2026-03-25T23:31:26:  ✓ Ready in 300ms
+2026-03-26T10:29:19: FTS search failed, using ILIKE fallback: column a.search_vector does not exist
+2026-03-26T11:06:32: FTS search failed, using ILIKE fallback: column a.search_vector does not exist
+2026-03-26T11:06:34: FTS search failed, using ILIKE fallback: column a.search_vector does not exist
+2026-03-26T11:52:03: 
+2026-03-26T11:52:03: > kb@0.1.0 start
+2026-03-26T11:52:03: > next start -H 0.0.0.0 -p ${PORT:-3000}
+2026-03-26T11:52:03: 
+2026-03-26T11:52:03:    ▲ Next.js 15.5.9
+2026-03-26T11:52:03:    - Local:        http://localhost:3010
+2026-03-26T11:52:03:    - Network:      http://0.0.0.0:3010
+2026-03-26T11:52:03: 
+2026-03-26T11:52:03:  ✓ Starting...
+2026-03-26T11:52:03:  ✓ Ready in 304ms
+2026-03-26T11:57:37: 
+2026-03-26T11:57:37: > kb@0.1.0 start
+2026-03-26T11:57:37: > next start -H 0.0.0.0 -p ${PORT:-3000}
+2026-03-26T11:57:37: 
+2026-03-26T11:57:37:    ▲ Next.js 15.5.9
+2026-03-26T11:57:37:    - Local:        http://localhost:3010
+2026-03-26T11:57:37:    - Network:      http://0.0.0.0:3010
+2026-03-26T11:57:37: 
+2026-03-26T11:57:37:  ✓ Starting...
+2026-03-26T11:57:38:  ✓ Ready in 311ms
+2026-03-26T12:12:11: FTS search failed, using ILIKE fallback: column a.search_vector does not exist
+2026-03-26T12:21:57: 
+2026-03-26T12:21:57: > kb@0.1.0 start
+2026-03-26T12:21:57: > next start -H 0.0.0.0 -p ${PORT:-3000}
+2026-03-26T12:21:57: 
+2026-03-26T12:21:58:    ▲ Next.js 15.5.9
+2026-03-26T12:21:58:    - Local:        http://localhost:3010
+2026-03-26T12:21:58:    - Network:      http://0.0.0.0:3010
+2026-03-26T12:21:58: 
+2026-03-26T12:21:58:  ✓ Starting...
+2026-03-26T12:21:58:  ✓ Ready in 307ms
+2026-03-26T12:47:00: 
+2026-03-26T12:47:00: > kb@0.1.0 start
+2026-03-26T12:47:00: > next start -H 0.0.0.0 -p ${PORT:-3000}
+2026-03-26T12:47:00: 
+2026-03-26T12:47:00:    ▲ Next.js 15.5.9
+2026-03-26T12:47:00:    - Local:        http://localhost:3010
+2026-03-26T12:47:00:    - Network:      http://0.0.0.0:3010
+2026-03-26T12:47:00: 
+2026-03-26T12:47:00:  ✓ Starting...
+2026-03-26T12:47:00:  ✓ Ready in 307ms
+2026-03-26T13:43:02: FTS search failed, using ILIKE fallback: column a.search_vector does not exist
+2026-03-26T13:45:51: 
+2026-03-26T13:45:51: > kb@0.1.0 start
+2026-03-26T13:45:51: > next start -H 0.0.0.0 -p ${PORT:-3000}
+2026-03-26T13:45:51: 
+2026-03-26T13:45:51:    ▲ Next.js 15.5.9
+2026-03-26T13:45:51:    - Local:        http://localhost:3010
+2026-03-26T13:45:51:    - Network:      http://0.0.0.0:3010
+2026-03-26T13:45:51: 
+2026-03-26T13:45:51:  ✓ Starting...
+2026-03-26T13:45:51:  ✓ Ready in 308ms
+2026-03-26T15:00:55: FTS search failed, using ILIKE fallback: column a.search_vector does not exist
+2026-03-26T15:00:56: FTS search failed, using ILIKE fallback: column a.search_vector does not exist
+2026-03-26T15:00:57: FTS search failed, using ILIKE fallback: column a.search_vector does not exist
+2026-03-26T15:01:00: FTS search failed, using ILIKE fallback: column a.search_vector does not exist
+2026-03-26T15:01:52: FTS search failed, using ILIKE fallback: column a.search_vector does not exist
+2026-03-26T15:50:57: 
+2026-03-26T15:50:57: > kb@0.1.0 start
+2026-03-26T15:50:57: > next start -H 0.0.0.0 -p ${PORT:-3000}
+2026-03-26T15:50:57: 
+2026-03-26T15:50:57:    ▲ Next.js 15.5.9
+2026-03-26T15:50:57:    - Local:        http://localhost:3010
+2026-03-26T15:50:57:    - Network:      http://0.0.0.0:3010
+2026-03-26T15:50:57: 
+2026-03-26T15:50:57:  ✓ Starting...
+2026-03-26T15:50:57:  ✓ Ready in 374ms
+2026-03-26T16:01:36: FTS search failed, using ILIKE fallback: column a.search_vector does not exist
+2026-03-26T16:01:44: FTS search failed, using ILIKE fallback: column a.search_vector does not exist
+2026-03-26T16:51:10: 
+2026-03-26T16:51:10: > kb@0.1.0 start
+2026-03-26T16:51:10: > next start -H 0.0.0.0 -p ${PORT:-3000}
+2026-03-26T16:51:10: 
+2026-03-26T16:51:10:    ▲ Next.js 15.5.9
+2026-03-26T16:51:10:    - Local:        http://localhost:3010
+2026-03-26T16:51:10:    - Network:      http://0.0.0.0:3010
+2026-03-26T16:51:10: 
+2026-03-26T16:51:10:  ✓ Starting...
+2026-03-26T16:51:10:  ✓ Ready in 317ms
+2026-03-26T16:58:33: 
+2026-03-26T16:58:33: > kb@0.1.0 start
+2026-03-26T16:58:33: > next start -H 0.0.0.0 -p ${PORT:-3000}
+2026-03-26T16:58:33: 
+2026-03-26T16:58:33:    ▲ Next.js 15.5.9
+2026-03-26T16:58:33:    - Local:        http://localhost:3010
+2026-03-26T16:58:33:    - Network:      http://0.0.0.0:3010
+2026-03-26T16:58:33: 
+2026-03-26T16:58:33:  ✓ Starting...
+2026-03-26T16:58:33:  ✓ Ready in 311ms
+2026-03-26T17:00:35: 
+2026-03-26T17:00:35: > kb@0.1.0 start
+2026-03-26T17:00:35: > next start -H 0.0.0.0 -p ${PORT:-3000}
+2026-03-26T17:00:35: 
+2026-03-26T17:00:36:    ▲ Next.js 15.5.9
+2026-03-26T17:00:36:    - Local:        http://localhost:3010
+2026-03-26T17:00:36:    - Network:      http://0.0.0.0:3010
+2026-03-26T17:00:36: 
+2026-03-26T17:00:36:  ✓ Starting...
+2026-03-26T17:00:36:  ✓ Ready in 317ms
+2026-03-26T19:28:26: FTS search failed, using ILIKE fallback: column a.search_vector does not exist
+2026-03-28T15:09:19: FTS search failed, using ILIKE fallback: column a.search_vector does not exist
+2026-03-29T08:41:57: FTS search failed, using ILIKE fallback: column a.search_vector does not exist
+2026-03-29T08:42:11: FTS search failed, using ILIKE fallback: column a.search_vector does not exist
+2026-03-29T11:15:40: FTS search failed, using ILIKE fallback: column a.search_vector does not exist
+2026-03-29T11:15:41: FTS search failed, using ILIKE fallback: column a.search_vector does not exist
+2026-03-29T11:19:38: FTS search failed, using ILIKE fallback: column a.search_vector does not exist
+2026-03-29T11:19:39: FTS search failed, using ILIKE fallback: column a.search_vector does not exist
+2026-03-29T11:19:45: FTS search failed, using ILIKE fallback: column a.search_vector does not exist
+2026-03-31T09:19:23: FTS search failed, using ILIKE fallback: column a.search_vector does not exist
+2026-04-08T20:55:58: FTS search failed, using ILIKE fallback: column a.search_vector does not exist
+2026-04-08T20:56:01: FTS search failed, using ILIKE fallback: column a.search_vector does not exist
+2026-04-08T20:56:02: FTS search failed, using ILIKE fallback: column a.search_vector does not exist
+2026-04-08T20:56:03: FTS search failed, using ILIKE fallback: column a.search_vector does not exist

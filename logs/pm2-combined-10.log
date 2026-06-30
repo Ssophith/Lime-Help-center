@@ -1,0 +1,32 @@
+2026-01-14T16:20:42: 
+2026-01-14T16:20:42: > kb@0.1.0 start
+2026-01-14T16:20:42: > next start -H 0.0.0.0 -p ${PORT:-3000}
+2026-01-14T16:20:42: 
+2026-01-14T16:20:42:    ▲ Next.js 15.5.9
+2026-01-14T16:20:42:    - Local:        http://localhost:3010
+2026-01-14T16:20:42:    - Network:      http://0.0.0.0:3010
+2026-01-14T16:20:42: 
+2026-01-14T16:20:42:  ✓ Starting...
+2026-01-14T16:20:42:  ✓ Ready in 377ms
+2026-01-14T16:26:04: [Error: Failed to find Server Action "cb9908f3". This request might be from an older or newer deployment.
+2026-01-14T16:26:04: Read more: https://nextjs.org/docs/messages/failed-to-find-server-action]
+2026-01-14T16:26:04: [Error: Failed to find Server Action "f167e153". This request might be from an older or newer deployment.
+2026-01-14T16:26:04: Read more: https://nextjs.org/docs/messages/failed-to-find-server-action]
+2026-01-14T16:26:04: [Error: Failed to find Server Action "46d7d23a". This request might be from an older or newer deployment.
+2026-01-14T16:26:04: Read more: https://nextjs.org/docs/messages/failed-to-find-server-action]
+2026-01-14T16:26:07: [Error: Failed to find Server Action "714c0466". This request might be from an older or newer deployment.
+2026-01-14T16:26:07: Read more: https://nextjs.org/docs/messages/failed-to-find-server-action]
+2026-01-14T16:26:07: [Error: Failed to find Server Action "c05eca4c". This request might be from an older or newer deployment.
+2026-01-14T16:26:07: Read more: https://nextjs.org/docs/messages/failed-to-find-server-action]
+2026-01-14T16:26:07: [Error: Failed to find Server Action "f5010172". This request might be from an older or newer deployment.
+2026-01-14T16:26:07: Read more: https://nextjs.org/docs/messages/failed-to-find-server-action]
+2026-01-14T16:38:19: 
+2026-01-14T16:38:19: > kb@0.1.0 start
+2026-01-14T16:38:19: > next start -H 0.0.0.0 -p ${PORT:-3000}
+2026-01-14T16:38:19: 
+2026-01-14T16:38:19:    ▲ Next.js 15.5.9
+2026-01-14T16:38:19:    - Local:        http://localhost:3010
+2026-01-14T16:38:19:    - Network:      http://0.0.0.0:3010
+2026-01-14T16:38:19: 
+2026-01-14T16:38:19:  ✓ Starting...
+2026-01-14T16:38:19:  ✓ Ready in 357ms

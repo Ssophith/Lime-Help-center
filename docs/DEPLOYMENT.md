@@ -1,0 +1,197 @@
+# Deployment
+
+How the LIME help center runs in production at <https://help.lime.mn>.
+
+## Architecture
+
+```
+Internet ─▶ Cloudflare ─▶ nginx (TLS, static) ─▶ PM2 ─▶ Next.js (port 3010)
+                                                   │
+                                                   ├──▶ Postgres 16 (Docker, host port 5444)
+                                                   ├──▶ Cloudflare R2 (uploads)
+                                                   ├──▶ AWS SES (invite emails)
+                                                   └──▶ Groq API (AI chat)
+```
+
+| Component | Where |
+|---|---|
+| Next.js app | `/home/admin/limekb`, run via PM2 as the `limekb` process, port 3010 |
+| Postgres | Docker container `kb_postgres`, host port 5444 |
+| nginx | `/etc/nginx/sites-enabled/limekb` (config tracked at `nginx-limekb.conf`) |
+| Logs | `pm2 logs limekb` (combined out + err) and `/home/admin/limekb/logs/` |
+
+## Server prerequisites
+
+- Ubuntu 22.04+ (or any Linux with `systemd`)
+- Node.js 20.9.0+ (use `nvm`)
+- Docker Engine 24+ with `docker compose` plugin
+- PM2 (`npm i -g pm2`)
+- nginx
+- Postgres client tools (`apt install postgresql-client`) — for migrations
+  and direct DB access only; the server itself runs in Docker.
+
+## First-time deploy
+
+```bash
+# 1. Clone the repo
+git clone <repo-url> /home/admin/limekb
+cd /home/admin/limekb
+
+# 2. Install deps
+npm install
+
+# 3. Create .env.production with the values from your secrets store
+#    See env.production.template for required keys.
+cp env.production.template .env.production
+$EDITOR .env.production
+chmod 600 .env.production
+
+# 4. Create a docker-compose .env (separate from .env.production — Docker
+#    Compose reads its own .env file)
+cat > .env <<EOF
+POSTGRES_USER=limekb
+POSTGRES_PASSWORD=<the same value as in DATABASE_URL>
+POSTGRES_DB=limekb
+EOF
+chmod 600 .env
+
+# 5. Start Postgres
+docker compose up -d
+
+# 6. Apply migrations
+psql "$DATABASE_URL" -f scripts/init-db.sql
+psql "$DATABASE_URL" -f scripts/add-user-management.sql
+psql "$DATABASE_URL" -f scripts/add-admin-auth.sql
+psql "$DATABASE_URL" -f scripts/add-icon-color-column.sql
+psql "$DATABASE_URL" -f scripts/add-fts.sql
+psql "$DATABASE_URL" -f scripts/add-admin-linked-user.sql
+
+# 7. Create the initial super-admin user
+export ADMIN_PASSWORD='<pick-a-strong-password>'
+npm run create-admin admin "$ADMIN_PASSWORD"
+
+# 8. Build
+npm run build
+
+# 9. Start under PM2
+pm2 start ecosystem.config.js
+pm2 save
+pm2 startup   # follow the instructions to enable auto-start on boot
+
+# 10. Configure nginx (see nginx-limekb.conf in this repo for the template)
+sudo cp nginx-limekb.conf /etc/nginx/sites-available/limekb
+sudo ln -sf /etc/nginx/sites-available/limekb /etc/nginx/sites-enabled/limekb
+sudo nginx -t && sudo systemctl reload nginx
+```
+
+## Routine deploy (subsequent updates)
+
+```bash
+cd /home/admin/limekb
+git pull
+npm install
+npm run build
+pm2 restart limekb --update-env
+```
+
+The `--update-env` flag re-reads `.env.production` so changes there take
+effect on restart.
+
+If the deploy includes a SQL migration, apply it before the build:
+
+```bash
+psql "$DATABASE_URL" -f scripts/<new-migration>.sql
+```
+
+Migrations are idempotent (`IF NOT EXISTS`), so re-running is safe.
+
+## Environment variables (`.env.production`)
+
+| Variable | Required | Purpose |
+|---|---|---|
+| `NODE_ENV` | Yes | `production` |
+| `PORT` | Yes | `3010` (nginx upstream) |
+| `NEXT_PUBLIC_APP_URL` | Yes | `https://help.lime.mn` |
+| `DATABASE_URL` | Yes | `postgresql://limekb:<pw>@localhost:5444/limekb` |
+| `ADMIN_SESSION_SECRET` | Yes | 32-byte hex; generate via `node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"` |
+| `R2_ACCOUNT_ID`, `R2_ACCESS_KEY_ID`, `R2_SECRET_ACCESS_KEY` | Yes | Cloudflare R2 API token |
+| `R2_BUCKET_NAME` | Yes | `lime-kb` (or your bucket name) |
+| `R2_ENDPOINT` | Yes | `https://<account-id>.r2.cloudflarestorage.com` |
+| `R2_PUBLIC_URL` | Yes | The custom-domain or `pub-*.r2.dev` URL the bucket serves over |
+| `NEXT_PUBLIC_TINYMCE_API_KEY` | Yes | TinyMCE Cloud API key — domain-locked at tiny.cloud, safe to expose |
+| `GROQ_API_KEY` | Yes (for AI chat) | <https://console.groq.com/keys> — free tier |
+| `NODEMAILER_*` or `AWS_SES_*` | For invites | SMTP / SES for user-invite emails |
+| `REDIS_URL` | No | Enables Redis-backed rate-limit when set; otherwise in-memory |
+
+See `docs/SECURITY.md` for the rotation procedure.
+
+## Cloudflare R2 setup
+
+1. Sign in to the Cloudflare dashboard → R2.
+2. Create a bucket (e.g. `lime-kb`). Pick an `eu` or `auto` location.
+3. Settings → Public Access → enable a `*.r2.dev` URL or attach a custom
+   domain (the current setup uses `cdn-kb.lime.mn`).
+4. Manage R2 API Tokens → create a token with `Object Read & Write`
+   scoped to the bucket. Save the Access Key ID + Secret.
+5. Fill the `R2_*` variables in `.env.production`.
+
+R2 paths follow `categories/{categorySlug}/articles/{articleId}/{kind}/{uuid}_{filename}`,
+generated by `lib/r2.ts`.
+
+## nginx
+
+`nginx-limekb.conf` in the repo root is the working template. Key bits:
+
+- TLS via Let's Encrypt (`certbot --nginx`); cert paths are referenced in
+  the config.
+- Upstream: `http://127.0.0.1:3010` (Next.js).
+- `client_max_body_size 30M;` so the 25 MB upload limit isn't blocked by
+  nginx before Next.js sees the request.
+- `proxy_buffering off;` for the `/api/ask` streaming endpoint.
+
+## PostgreSQL
+
+The DB runs in Docker (image: `postgres:16-alpine`). The container reads
+its credentials from a local `.env` file next to `docker-compose.yml`
+(separate from `.env.production` — Docker Compose has its own conventions).
+
+To back up:
+
+```bash
+docker exec kb_postgres pg_dump -U limekb limekb > backups/limekb_$(date +%Y%m%d_%H%M%S).sql
+```
+
+The repo's `backups/` directory has two snapshots from earlier in
+production. Set up a cron job to rotate these.
+
+## Monitoring
+
+- `pm2 monit` — process + memory + restart counts.
+- `pm2 logs limekb --lines 200` — recent app logs.
+- `/home/admin/.pm2/logs/limekb-error.log` — long-form error log.
+- Cloudflare Insights — auto-injected; visible in the Cloudflare dashboard
+  under the zone's Analytics tab.
+
+## Rolling back
+
+```bash
+cd /home/admin/limekb
+git log --oneline -10
+git checkout <previous-good-commit>
+npm install
+npm run build
+pm2 restart limekb --update-env
+```
+
+If a migration broke the DB, restore from the most recent dump in
+`backups/`:
+
+```bash
+docker exec -i kb_postgres psql -U limekb limekb < backups/<dump>.sql
+```
+
+## DNS
+
+`help.lime.mn` is a CNAME / A record at Cloudflare pointing at the server.
+Cloudflare proxies (orange cloud) — that's where the Insights beacon and
+WAF rules come from.

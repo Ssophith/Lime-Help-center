@@ -1,0 +1,615 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&display=swap');
+
+
+:root {
+  --lime-dark:    #02251A;
+  --lime-darker:  #011810;
+  --lime-accent:  #C8FF00;
+  --lime-bg:      #F4F4F5;
+  --lime-card-bg: #FFFFFF;
+  --lime-text:    #17191B;
+  --lime-muted:   #6B7280;
+  --lime-border:  #E5E7EB;
+}
+
+body {
+  background: var(--lime-bg);
+  color: var(--lime-text);
+  font-family: 'Mulish', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Header ─────────────────────────────── */
+.lime-header {
+  background: var(--lime-dark);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  box-shadow: 0 1px 12px rgba(0,0,0,0.25);
+}
+
+/* ── Hero ────────────────────────────────── */
+.lime-hero {
+  background: linear-gradient(135deg, #011810 0%, #02251A 50%, #03382A 100%);
+  position: relative;
+  /* overflow: hidden removed — was clipping the search dropdown */
+}
+
+.lime-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C8FF00' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.lime-hero-glow {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(200,255,0,0.08) 0%, transparent 70%);
+  top: -200px;
+  right: -100px;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* ── Cards ───────────────────────────────── */
+.lime-card {
+  position: relative;
+  background: var(--lime-card-bg);
+  border-radius: 16px;
+  border: 1px solid var(--lime-border);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.22s ease;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.lime-card:hover {
+  box-shadow: 0 8px 32px rgba(2,37,26,0.12);
+  border-color: rgba(2,37,26,0.15);
+  transform: translateY(-2px);
+}
+
+.lime-card-accent {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--lime-accent);
+  transform: scaleX(0);
+  transition: transform 0.22s ease;
+  transform-origin: left;
+}
+
+.lime-card:hover .lime-card-accent {
+  transform: scaleX(1);
+}
+
+.lime-card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--lime-dark);
+  border: 1px solid rgba(0,0,0,0.15);
+  flex-shrink: 0;
+  transition: background 0.22s ease;
+}
+
+.lime-card:hover .lime-card-icon {
+  background: #03382A;
+}
+
+/* ── Badges ──────────────────────────────── */
+.lime-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+  height: 22px;
+  padding: 0 8px;
+  border-radius: 999px;
+  background: rgba(200,255,0,0.15);
+  border: 1px solid rgba(200,255,0,0.3);
+  color: #1a4a0a;
+  font-size: 0.7rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* ── Buttons ─────────────────────────────── */
+.lime-btn-accent {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  background: var(--lime-accent);
+  color: var(--lime-dark);
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 0.625rem 1.5rem;
+  font-size: 0.875rem;
+  transition: all 0.18s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.lime-btn-accent:hover {
+  background: #d4ff1a;
+  box-shadow: 0 4px 16px rgba(200,255,0,0.35);
+  transform: translateY(-1px);
+}
+
+.lime-btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  border: 1.5px solid rgba(255,255,255,0.3);
+  color: white;
+  font-weight: 600;
+  border-radius: 999px;
+  padding: 0.625rem 1.5rem;
+  font-size: 0.875rem;
+  transition: all 0.18s ease;
+  background: transparent;
+}
+
+.lime-btn-outline:hover {
+  border-color: var(--lime-accent);
+  color: var(--lime-accent);
+}
+
+/* ── Article row ─────────────────────────── */
+.lime-article-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  background: white;
+  border-radius: 12px;
+  border: 1px solid var(--lime-border);
+  transition: all 0.18s ease;
+  gap: 1rem;
+}
+
+.lime-article-row:hover {
+  border-color: rgba(2,37,26,0.2);
+  box-shadow: 0 4px 16px rgba(2,37,26,0.08);
+  transform: translateX(2px);
+}
+
+/* ── Section headings ────────────────────── */
+.lime-section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--lime-dark);
+  margin-bottom: 0.75rem;
+}
+
+.lime-section-label::before {
+  content: '';
+  display: block;
+  width: 18px;
+  height: 3px;
+  background: var(--lime-accent);
+  border-radius: 2px;
+}
+
+/* ── Search ──────────────────────────────── */
+.lime-search-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: white;
+  border-radius: 999px;
+  border: 2px solid transparent;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+  overflow: hidden;
+}
+
+.lime-search-wrapper:focus-within {
+  border-color: var(--lime-accent);
+  box-shadow: 0 4px 24px rgba(200,255,0,0.2);
+}
+
+.lime-search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 1rem 1.25rem 1rem 3.25rem;
+  font-size: 1rem;
+  background: transparent;
+  color: var(--lime-text);
+  font-family: inherit;
+}
+
+.lime-search-input::placeholder {
+  color: #9CA3AF;
+}
+
+.lime-search-btn {
+  background: var(--lime-accent);
+  color: var(--lime-dark);
+  border: none;
+  padding: 0.625rem 1.5rem;
+  margin: 5px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: background 0.18s ease;
+  white-space: nowrap;
+  font-family: inherit;
+}
+
+.lime-search-btn:hover {
+  background: #d4ff1a;
+}
+
+/* ── Footer ──────────────────────────────── */
+.lime-footer {
+  background: var(--lime-dark);
+  color: rgba(255,255,255,0.7);
+}
+
+
+
+/* Prose styles for markdown content */
+.prose {
+  color: #374151;
+}
+
+.prose h1 {
+  font-size: 2.25em;
+  margin-top: 0;
+  margin-bottom: 0.8888889em;
+  line-height: 1.1111111;
+  font-weight: 800;
+}
+
+.prose h2 {
+  font-size: 1.5em;
+  margin-top: 2em;
+  margin-bottom: 1em;
+  line-height: 1.3333333;
+  font-weight: 700;
+}
+
+.prose h3 {
+  font-size: 1.25em;
+  margin-top: 1.6em;
+  margin-bottom: 0.6em;
+  line-height: 1.6;
+  font-weight: 600;
+}
+
+.prose p {
+  margin-top: 1.25em;
+  margin-bottom: 1.25em;
+}
+
+.prose ul, .prose ol {
+  margin-top: 1.25em;
+  margin-bottom: 1.25em;
+  padding-left: 1.625em;
+}
+
+.prose li {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.prose a {
+  color: #02251A;
+  text-decoration: underline;
+}
+
+.prose a:hover {
+  color: #02251A;
+}
+
+.prose code {
+  background-color: #f3f4f6;
+  padding: 0.125rem 0.375rem;
+  border-radius: 0.25rem;
+  font-size: 0.875em;
+}
+
+.prose pre {
+  background-color: #1f2937;
+  color: #f9fafb;
+  padding: 1em;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  margin-top: 1.25em;
+  margin-bottom: 1.25em;
+}
+
+.prose pre code {
+  background-color: transparent;
+  padding: 0;
+  color: inherit;
+}
+
+.prose img,
+.prose-content img {
+  display: block;
+  /* Override TinyMCE inline width/height attrs — make screenshots fill the container */
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  margin: 1.25rem auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.prose-content {
+  color: #374151;
+  line-height: 1.75;
+}
+
+.prose-content p {
+  margin: 1em 0;
+}
+
+.prose-content h1,
+.prose-content h2,
+.prose-content h3,
+.prose-content h4,
+.prose-content h5,
+.prose-content h6 {
+  font-weight: 600;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  line-height: 1.3;
+}
+
+.prose-content h1 { font-size: 2.25em; }
+.prose-content h2 { font-size: 1.875em; }
+.prose-content h3 { font-size: 1.5em; }
+.prose-content h4 { font-size: 1.25em; }
+
+.prose-content ul {
+  margin: 1em 0;
+  padding-left: 2em;
+  list-style-type: disc;
+}
+
+.prose-content ol {
+  margin: 1em 0;
+  padding-left: 2em;
+  list-style-type: decimal;
+  counter-reset: list-counter;
+}
+
+/* Force numbers to show even when TinyMCE adds inline styles */
+.prose-content ol li {
+  list-style-type: decimal !important;
+  display: list-item !important;
+}
+
+.prose-content ul li {
+  list-style-type: disc !important;
+  display: list-item !important;
+}
+
+.prose-content li {
+  margin: 0.5em 0;
+}
+
+.prose-content a {
+  color: #02251A;
+  text-decoration: underline;
+}
+
+.prose-content a:hover {
+  color: #02251A;
+}
+
+.prose-content code {
+  background-color: #f3f4f6;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, "Courier New", monospace;
+  font-size: 0.9em;
+}
+
+.prose-content pre {
+  background-color: #f3f4f6;
+  padding: 1rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 1em 0;
+}
+
+.prose-content pre code {
+  background-color: transparent;
+  padding: 0;
+}
+
+.prose-content blockquote {
+  border-left: 4px solid #02251A;
+  padding-left: 1rem;
+  margin-left: 0;
+  color: #6b7280;
+  font-style: italic;
+}
+
+.prose-content video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1.25rem auto;
+  border-radius: 8px;
+}
+
+/* Broken/missing image fallback styling */
+.prose-content img[src*='fbcdn'],
+.prose-content img[src*='facebook'],
+.prose-content img.broken-image {
+  min-height: 48px;
+  background: #f3f4f6;
+  border: 1px dashed #d1d5db;
+}
+
+/* FAQ HTML content rendered via dangerouslySetInnerHTML */
+.faq-html-content {
+  color: #374151;
+  line-height: 1.75;
+}
+
+.faq-html-content p {
+  margin: 0.75em 0;
+}
+
+.faq-html-content img {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  display: block;
+  margin: 1rem auto;
+  border-radius: 8px;
+}
+
+.faq-html-content ul,
+.faq-html-content ol {
+  margin: 0.75em 0;
+  padding-left: 1.5em;
+}
+
+.faq-html-content li {
+  margin: 0.25em 0;
+}
+
+.faq-html-content a {
+  color: #02251A;
+  text-decoration: underline;
+}
+
+.faq-html-content strong { font-weight: 600; }
+.faq-html-content em { font-style: italic; }
+
+/* TipTap Editor Styles */
+.ProseMirror {
+  outline: none;
+  padding: 1rem;
+  min-height: 300px;
+}
+
+.ProseMirror p {
+  margin: 0.75em 0;
+}
+
+.ProseMirror p.is-editor-empty:first-child::before {
+  color: #9ca3af;
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  pointer-events: none;
+}
+
+.ProseMirror h1 {
+  font-size: 2em;
+  font-weight: 700;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  line-height: 1.2;
+}
+
+.ProseMirror h2 {
+  font-size: 1.5em;
+  font-weight: 600;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  line-height: 1.3;
+}
+
+.ProseMirror h3 {
+  font-size: 1.25em;
+  font-weight: 600;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  line-height: 1.4;
+}
+
+.ProseMirror ul,
+.ProseMirror ol {
+  padding-left: 1.5em;
+  margin: 0.75em 0;
+}
+
+.ProseMirror li {
+  margin: 0.25em 0;
+}
+
+.ProseMirror a {
+  color: #02251A;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.ProseMirror a:hover {
+  color: #02251A;
+}
+
+.ProseMirror img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  margin: 1em 0;
+}
+
+.ProseMirror strong {
+  font-weight: 600;
+}
+
+.ProseMirror em {
+  font-style: italic;
+}
+
+.ProseMirror code {
+  background-color: #f3f4f6;
+  padding: 0.125rem 0.375rem;
+  border-radius: 0.25rem;
+  font-size: 0.875em;
+  font-family: 'Courier New', monospace;
+}
+
+.ProseMirror pre {
+  background-color: #1f2937;
+  color: #f9fafb;
+  padding: 1em;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  margin: 1em 0;
+}
+
+.ProseMirror pre code {
+  background-color: transparent;
+  padding: 0;
+  color: inherit;
+}
+
+.ProseMirror blockquote {
+  border-left: 4px solid #02251A;
+  padding-left: 1em;
+  margin: 1em 0;
+  color: #6b7280;
+  font-style: italic;
+}
